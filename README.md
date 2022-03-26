@@ -33,7 +33,7 @@ Maps you will need are:
 * beta.fits
 * tau.fits
 
-After dowlownd maps you want, please put them in the ::data:: directory.
+After dowlownd maps you want, please put them in the *data* directory.
 
 ### Querying the original and corrected reddening values of Maps
 Maps are queried using `astropy.coordinates.SkyCoord` objects. Currently we only support 'icrs' and 'galactic' systems. For example,
