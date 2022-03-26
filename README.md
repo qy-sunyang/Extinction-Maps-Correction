@@ -20,4 +20,9 @@ Maps you will need are:
 * SFD_dust_4096_sgp.fits
 * SFD_temp_ngp.fits
 * SFD_temp_sgp.fits
-3. Planck2014 [https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/EWCNL5](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/EWCNL5)
+2. Planck2014 [https://irsa.ipac.caltech.edu/data/Planck/release_1/all-sky-maps/previews/HFI_CompMap_ThermalDustModel_2048_R1.20/index.html](https://irsa.ipac.caltech.edu/data/Planck/release_1/all-sky-maps/previews/HFI_CompMap_ThermalDustModel_2048_R1.20/index.html)
+3. Planck2019 [https://vizier.cds.unistra.fr/viz-bin/VizieR-4](https://vizier.cds.unistra.fr/viz-bin/VizieR-4)
+Maps you will need are:
+* temp.fits 
+* beta.fits
+* tau.fits
