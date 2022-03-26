@@ -32,4 +32,9 @@ Maps you will need are:
 After dowlownd maps you want, please put them in the same directory with extinction_correct.py.
 
 ### Querying the original and corrected reddening values of Maps
-Maps are queried using `astropy.coordinates.SkyCoord` objects. Currently we only support 'icrs' and 'galactic' systems.
+Maps are queried using `astropy.coordinates.SkyCoord` objects. Currently we only support 'icrs' and 'galactic' systems. For example,
+```
+from astropy.coordinates import SkyCoord
+c = SkyCoord([180, 45., 180., 80.], [40,15, 0., -15.], frame="galactic", unit="deg")
+out,out_correct = sfd_reddening_correction(c)
+```
