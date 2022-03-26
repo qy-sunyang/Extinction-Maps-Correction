@@ -11,4 +11,9 @@ Paper link:[]
 
 ## User Guide
 
-1. Download the Respository
+### Download the Respository
+
+### Download Original Maps
+Here are links for downloading original maps:
+1. SFD 1998 [https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/EWCNL5](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/EWCNL5)
+4. 
