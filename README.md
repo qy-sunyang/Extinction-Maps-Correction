@@ -34,7 +34,15 @@ After dowlownd maps you want, please put them in the same directory with extinct
 ### Querying the original and corrected reddening values of Maps
 Maps are queried using `astropy.coordinates.SkyCoord` objects. Currently we only support 'icrs' and 'galactic' systems. For example,
 ```
-from astropy.coordinates import SkyCoord
-c = SkyCoord([180, 45., 180., 80.], [40,15, 0., -15.], frame="galactic", unit="deg")
-out,out_correct = sfd_reddening_correction(c)
+>>> from astropy.coordinates import SkyCoord
+>>> c = SkyCoord([180, 45., 180., 80.], [40,15, 0., -15.], frame="galactic", unit="deg")
+>>> c = SkyCoord([180, 45., 180., 80.], [40,15, 0., -15.], frame="icrs", unit="deg")
+```
+Then call the function you need to obtain the original reddening values and corrected values. For example,
+```
+>>> from extinction_correct import sfd_reddening_correction
+>>> from astropy.coordinates import SkyCoord
+>>> c = SkyCoord([180, 45., 180., 80.], [40,15, 0., -15.], frame="galactic", unit="deg")
+>>> out,out_correct = sfd_reddening_correction(c)
+print(out,out_correct)
 ```
