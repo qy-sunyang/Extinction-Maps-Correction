@@ -44,5 +44,6 @@ Then call the function you need to obtain the original reddening values and corr
 >>> from astropy.coordinates import SkyCoord
 >>> c = SkyCoord([180, 45., 180., 80.], [40,15, 0., -15.], frame="galactic", unit="deg")
 >>> out,out_correct = sfd_reddening_correction(c)
-print(out,out_correct)
+>>> print(out,out_correct)
+[0.02857005 0.27206674 1.4048629  0.18249302] [0.02582535        nan        nan 0.15870613]
 ```
