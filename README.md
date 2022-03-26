@@ -16,8 +16,8 @@ Paper link:[]
 Here are links for downloading original maps:
 1. SFD 1998 [https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/EWCNL5](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/EWCNL5)
 Maps you will need are:
-*SFD_dust_4096_ngp.fits 
-*SFD_dust_4096_sgp.fits
-*SFD_temp_ngp.fits
-*SFD_temp_sgp.fits
+* SFD_dust_4096_ngp.fits 
+* SFD_dust_4096_sgp.fits
+* SFD_temp_ngp.fits
+* SFD_temp_sgp.fits
 3. Planck2014 [https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/EWCNL5](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/EWCNL5)
