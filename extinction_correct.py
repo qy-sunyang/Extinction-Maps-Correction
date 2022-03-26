@@ -80,8 +80,8 @@ def sfd_reddening_correction(coordinate):
     
     # prepare the origianl reddening value from the SFD map 
     pole = ['ngp','sgp']
-    hduN=fits.open('../../../data/SFD/SFDmap/SFD_dust_4096_ngp.fits')
-    hduS=fits.open('../../../data/SFD/SFDmap/SFD_dust_4096_sgp.fits')
+    hduN=fits.open('data/SFD_dust_4096_ngp.fits')
+    hduS=fits.open('data/SFD_dust_4096_sgp.fits')
     dataN = [hduN[0].data, wcs.WCS(hduN[0].header)]
     dataS = [hduS[0].data, wcs.WCS(hduS[0].header)]
     data_pole = [dataN,dataS]        
@@ -98,7 +98,7 @@ def sfd_reddening_correction(coordinate):
 
     #load the k map of SFD     
     use_k_map = hp.fitsfunc.read_map\
-    ('../../../data/SFD/'+'final_healpix_fitsfile/SFD/k.fits', nest=False, dtype=None) 
+    ('data/k_maps/k_SFD.fits', nest=False, dtype=None) 
     
     # convert coordinate to HEALPix indice  for k map    
     nside = 64 
@@ -129,8 +129,8 @@ def sfd_reddening_correction(coordinate):
         b_forfit = b[unvalid_index]
         
         # prepare SFD dust temperature map
-        hduN=fits.open('../../../data/SFD/SFDmap/SFD_temp_ngp.fits')
-        hduS=fits.open('../../../data/SFD/SFDmap/SFD_temp_sgp.fits')
+        hduN=fits.open('data/SFD_temp_ngp.fits')
+        hduS=fits.open('data/SFD_temp_sgp.fits')
         dataN = [hduN[0].data, wcs.WCS(hduN[0].header)]
         dataS = [hduS[0].data, wcs.WCS(hduS[0].header)]
         data_pole = [dataN,dataS]                
@@ -145,7 +145,7 @@ def sfd_reddening_correction(coordinate):
         ### using SFD fit function to get correction factor k ###
         
         # read the values of fitting parameter:
-        func = pd.read_csv('../../../data/SFD/all_func.csv')
+        func = pd.read_csv('data/kfit_relation/all_func.csv')
         SFD_func = func['SFD'].values
         k_fit = kfit_func([temp,out_correct[unvalid_index]],SFD_func)#.values)
         out_correct[unvalid_index] = out_correct[unvalid_index] * k_fit
@@ -162,7 +162,7 @@ def sfd_reddening_correction(coordinate):
 
 def Planck2014R_reddening_correction(coordinate):
     '''
-    This function is for correcting Planck2014-R extinction map. (Planck et al. 2013)
+    This function is for correcting Planck2014-R extinction map. (Planck Collaboration et al. 2013)
     
     Args:
         1. coordinate('astropy.coordinates.SkyCoord'): The coordinates of target to correct extinction. 
@@ -194,7 +194,7 @@ def Planck2014R_reddening_correction(coordinate):
     ### prepare the origianl reddening value from the Planck2014 map ###
     
     # index for field: TAU=0, RADIANCE=3, TEMP=4, BETA=6
-    planck_map = hp.fitsfunc.read_map('../../../data/SFD/Planck2014map/HFI_CompMap_ThermalDustModel_2048_R1.20.fits',\
+    planck_map = hp.fitsfunc.read_map('data/HFI_CompMap_ThermalDustModel_2048_R1.20.fits',\
                                   field=3,nest=False,hdu=1)
     out = np.full(len(l), np.nan, dtype='f4')
     out_correct = np.full(len(l), np.nan, dtype='f4')  
@@ -211,7 +211,7 @@ def Planck2014R_reddening_correction(coordinate):
         
     #load the k map of Planck2014-R 
     use_k_map = hp.fitsfunc.read_map\
-    ('../../../data/SFD/'+'final_healpix_fitsfile/Planck/k.fits', nest=False, dtype=None) 
+    ('data/k_maps/k_Planck2014-R.fits', nest=False, dtype=None) 
     
     # convert Skycoord to indice in k HEALPix map     
     nside = 64 
@@ -243,14 +243,14 @@ def Planck2014R_reddening_correction(coordinate):
         
         # Read Planck2014-R dust temperature map
         # TAU:0,RADIANCE:3,TEMP:4,BETA:6
-        planck_temp = hp.fitsfunc.read_map('../../../data/SFD/Planck2014map/HFI_CompMap_ThermalDustModel_2048_R1.20.fits',\
+        planck_temp = hp.fitsfunc.read_map('data/HFI_CompMap_ThermalDustModel_2048_R1.20.fits',\
                                   field=4,nest=False,hdu=1)
         temp = planck_temp[indices[unvalid_index]]
 
         ### using Planck2014-R fit function to get correction factor k ###
         
         # read the values of fitting parameter:
-        func = pd.read_csv('../../../data/SFD/all_func.csv')
+        func = pd.read_csv('data/kfit_relation/all_func.csv')
         Plank2014R_func = func['Planck2014-R'].values
 
         k_fit = kfit_func([temp,out[unvalid_index]],Plank2014R_func)
@@ -268,7 +268,7 @@ def Planck2014R_reddening_correction(coordinate):
 
 def Planck2014Tau_reddening_correction(coordinate):
     '''
-    This function is for correcting Planck2014-Tau extinction map. (Planck et al. 2013)
+    This function is for correcting Planck2014-Tau extinction map. (Planck Collaboration et al. 2013)
     
     Args:
         1. coordinate('astropy.coordinates.SkyCoord'): The coordinates of target to correct extinction. 
@@ -299,7 +299,7 @@ def Planck2014Tau_reddening_correction(coordinate):
     
     # prepare the origianl reddening value from the map 
     # index for field: TAU=0, RADIANCE=3, TEMP=4, BETA=6
-    planck_map = hp.fitsfunc.read_map('../../../data/SFD/Planck2014map/HFI_CompMap_ThermalDustModel_2048_R1.20.fits',\
+    planck_map = hp.fitsfunc.read_map('data/HFI_CompMap_ThermalDustModel_2048_R1.20.fits',\
                                   field=0,nest=False,hdu=1)
     out = np.full(len(l), np.nan, dtype='f4')
     out_correct = np.full(len(l), np.nan, dtype='f4')
@@ -316,7 +316,7 @@ def Planck2014Tau_reddening_correction(coordinate):
         
     #load the k map of Planck2014-Tau 
     use_k_map = hp.fitsfunc.read_map\
-    ('../../../data/SFD/'+'final_healpix_fitsfile/Tau/k.fits', nest=False, dtype=None) 
+    ('data/k_maps/k_Planck2014-Tau.fits', nest=False, dtype=None) 
     
     # convert Skycoord to indice in k HEALPix map     
     nside = 64
@@ -348,27 +348,27 @@ def Planck2014Tau_reddening_correction(coordinate):
         
         # Read Planck2014 dust temperature map
          # TAU:0,RADIANCE:3,TEMP:4,BETA:6
-        planck_temp = hp.fitsfunc.read_map('../../../data/SFD/Planck2014map/HFI_CompMap_ThermalDustModel_2048_R1.20.fits',\
+        planck_temp = hp.fitsfunc.read_map('data/HFI_CompMap_ThermalDustModel_2048_R1.20.fits',\
                                   field=4,nest=False,hdu=1)
         temp = planck_temp[indices[unvalid_index]]
         
         # Read Planck2014 beta map
         # TAU:0,RADIANCE:3,TEMP:4,BETA:6
-        planck_beta = hp.fitsfunc.read_map('../../../data/SFD/Planck2014map/HFI_CompMap_ThermalDustModel_2048_R1.20.fits',\
+        planck_beta = hp.fitsfunc.read_map('data/HFI_CompMap_ThermalDustModel_2048_R1.20.fits',\
                                   field=6,nest=False,hdu=1)
         beta = planck_beta[indices[unvalid_index]]
 
         ### using Planck2014-Tau fit function to get correction factor k ###
         
         # read the values of fitting parameter:
-        func = pd.read_csv('../../../data/SFD/all_func.csv')
+        func = pd.read_csv('data/kfit_relation/all_func.csv')
         Plank2014R_func = func['Planck2014-Tau'].values
 
         # get normed k from the fitting relation
         k_norm_fit = kfit_func([temp,beta],Plank2014R_func)
 
         # convert normed k_fit to k_fit based on k_median-EBV relation
-        k2normk_file = pd.read_csv('../../../data/SFD/all_k2normk_pub.csv')
+        k2normk_file = pd.read_csv('data/k2normk/all_k2normk_pub.csv')
         k2normk_ebv = k2normk_file['Planck2014-Tau'].values
         k2normk_kmedian = k2normk_file['Planck2014-Tau_k'].values
         f=interpolate.interp1d(k2normk_ebv,k2normk_kmedian,kind='linear')
@@ -420,7 +420,7 @@ def Planck2019Tau_reddening_correction(coordinate):
         b = coordinate.b.deg
     
     # prepare the origianl reddening value from the Planck2019 map 
-    planck_map = hp.fitsfunc.read_map('../../../data/SFD/Planck2019map/tau.fits') 
+    planck_map = hp.fitsfunc.read_map('data/tau.fits') 
     out = np.full(len(l), np.nan, dtype='f4')
     out_correct = np.full(len(l), np.nan, dtype='f4')
     
@@ -435,7 +435,7 @@ def Planck2019Tau_reddening_correction(coordinate):
         
     #load the k map of Planck2019-Tau
     use_k_map = hp.fitsfunc.read_map\
-    ('../../../data/SFD/'+'final_healpix_fitsfile/Tau2019/k.fits', nest=False, dtype=None) 
+    ('data/f_maps/k_Planck2019-Tau.fits', nest=False, dtype=None) 
     
     # convert Skycoord to indice k HEALPix map    
     nside = 64 
@@ -466,24 +466,24 @@ def Planck2019Tau_reddening_correction(coordinate):
         b_forfit = b[unvalid_index]
         
         # Read Planck2019 dust temperature map
-        planck_temp = hp.fitsfunc.read_map('../../../data/SFD/Planck2019map/temp.fits')
+        planck_temp = hp.fitsfunc.read_map('data/temp.fits')
         temp = planck_temp[indices[unvalid_index]]
 
         # Read Planck2019 beta map
-        planck_beta = hp.fitsfunc.read_map('../../../data/SFD/Planck2019map/beta.fits')
+        planck_beta = hp.fitsfunc.read_map('data/beta.fits')
         beta = planck_beta[indices[unvalid_index]]
         
         ### using Planck2019-Tau fit function to get correction factor k ###
         
         # read the values of fitting parameter:
-        func = pd.read_csv('../../../data/SFD/all_func.csv')
+        func = pd.read_csv('data/kfit_relation/all_func.csv')
         Plank2014R_func = func['Planck2019-Tau'].values
         
         # get normed k from the fitting relation
         k_norm_fit = kfit_func([temp,beta],Plank2014R_func)
         
         # convert normed k_fit to k_fit based on k_median-EBV relation
-        k2normk_file = pd.read_csv('../../../data/SFD/all_k2normk_pub.csv')
+        k2normk_file = pd.read_csv('data/k2normk/all_k2normk_pub.csv')
         k2normk_ebv = k2normk_file['Planck2019-Tau'].values
         k2normk_kmedian = k2normk_file['Planck2019-Tau_k'].values
         f=interpolate.interp1d(k2normk_ebv,k2normk_kmedian,kind='linear')
