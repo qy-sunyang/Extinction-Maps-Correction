@@ -28,3 +28,5 @@ Maps you will need are:
 * temp.fits 
 * beta.fits
 * tau.fits
+
+After dowlownd maps you want, please put them in the same directory with extinction_correct.py.
