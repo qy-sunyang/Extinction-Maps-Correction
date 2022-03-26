@@ -10,7 +10,11 @@ Paper link:[]
 
 ## User Guide
 
-### Download the Respository
+### Pre-requested Packages
+1. [healpy (1.15.2)](https://healpy.readthedocs.io/en/latest/)
+2. [astropy (4.3.1)](https://www.astropy.org/)
+
+### Download the Whole Respository
 
 ### Download Original Maps
 Here are links for downloading original maps:
@@ -29,7 +33,7 @@ Maps you will need are:
 * beta.fits
 * tau.fits
 
-After dowlownd maps you want, please put them in the same directory with extinction_correct.py.
+After dowlownd maps you want, please put them in the ::data:: directory.
 
 ### Querying the original and corrected reddening values of Maps
 Maps are queried using `astropy.coordinates.SkyCoord` objects. Currently we only support 'icrs' and 'galactic' systems. For example,
