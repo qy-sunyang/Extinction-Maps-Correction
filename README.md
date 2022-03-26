@@ -32,4 +32,4 @@ Maps you will need are:
 After dowlownd maps you want, please put them in the same directory with extinction_correct.py.
 
 ### Querying the original and corrected reddening values of Maps
-Maps are queried using `astropy.coordinates.SkyCoord` objects.
+Maps are queried using `astropy.coordinates.SkyCoord` objects. Currently we only support 'icrs' and 'galactic' systems.
