@@ -47,3 +47,12 @@ Then call the function you need to obtain the original reddening values and corr
 >>> print(out,out_correct)
 [0.02857005 0.27206674 1.4048629  0.18249302] [0.02582535        nan        nan 0.15870613]
 ```
+You may get warnings and nan for corrected results. Unfortunately, it means for specific coordinates we cannot provide corrected values.
+
+If the warning infomation is 'Coordinates [i] are out of application range (E(B-V)>=0.3)', it means that,
+1. Coordinates [i] are not within the footprint of LAMOST so that we cannot provide the correction factor k for those regions;
+2. Since the original excess E(B-V) of Coordinates [i] are larger than 0.3, which is not at the application range of fitted k relations, we cannot provide the fitted correction factor k_fit as well.
+
+If the warning infomation is 'Coordinates [1] cannot get a reasonable k_fit value.', it means that,
+1. Coordinates [i] are not within the footprint of LAMOST so that we cannot provide the correction factor k for those regions;
+2. They are at the application range of fitted k relations, but k_fit is out of range [0, 2] that is not reliable.
