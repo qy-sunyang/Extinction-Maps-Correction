@@ -30,3 +30,6 @@ Maps you will need are:
 * tau.fits
 
 After dowlownd maps you want, please put them in the same directory with extinction_correct.py.
+
+### Querying the original and corrected reddening values of Maps
+Maps are queried using `astropy.coordinates.SkyCoord` objects.
