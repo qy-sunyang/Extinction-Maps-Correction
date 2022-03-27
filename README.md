@@ -1,6 +1,6 @@
 # Extinction-Maps-Correction
 
-Here is the github respository for our paper: Validations and corrections of the SFD and Planck reddening maps based on LAMOST and Gaia data
+Here is the github repository for our paper: Validations and corrections of the SFD and Planck reddening maps based on LAMOST and Gaia data
 
 Paper link:[]
 
@@ -15,7 +15,7 @@ Paper link:[]
 1. [healpy (1.15.2)](https://healpy.readthedocs.io/en/latest/)
 2. [astropy (4.3.1)](https://www.astropy.org/)
 
-### Download the Whole Respository
+### Download the Whole Repository
 
 ### Download Original Maps
 Here are links for downloading original maps:
