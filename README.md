@@ -27,7 +27,7 @@ Maps you will need are:
 * SFD_temp_ngp.fits
 * SFD_temp_sgp.fits
 2. Planck2014 [https://irsa.ipac.caltech.edu/data/Planck/release_1/all-sky-maps/previews/HFI_CompMap_ThermalDustModel_2048_R1.20/index.html](https://irsa.ipac.caltech.edu/data/Planck/release_1/all-sky-maps/previews/HFI_CompMap_ThermalDustModel_2048_R1.20/index.html)
-3. Planck2019 [https://vizier.cds.unistra.fr/viz-bin/VizieR-4](https://vizier.cds.unistra.fr/viz-bin/VizieR-4)
+3. Planck2019 [http://cdsarc.u-strasbg.fr/viz-bin/qcat?J/A+A/623/A21](http://cdsarc.u-strasbg.fr/viz-bin/qcat?J/A+A/623/A21)
 
 Maps you will need are:
 * temp.fits 
