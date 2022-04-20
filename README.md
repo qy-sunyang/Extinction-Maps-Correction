@@ -2,7 +2,7 @@
 
 Here is the github repository for our paper: Validations and corrections of the SFD and Planck reddening maps based on LAMOST and Gaia data
 
-Paper link:[]
+Paper link:[https://arxiv.org/abs/2204.01521](https://arxiv.org/abs/2204.01521)
 
 ## Supported dust maps
 1. SFD 1998 [(Schlegel, Finkbeiner and Davis 1998)](http://doi.org/10.1086/305772)
